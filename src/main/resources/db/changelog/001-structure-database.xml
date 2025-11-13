@@ -3,8 +3,8 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.25.xsd">
 
-  <changeSet id="001" author="johnpham" runOnChange="true" runInTransaction="true" labels="DDL">
-    <sqlFile path="../scripts/ddl/001-create-table-list-subclass.sql"
+  <changeSet id="001" author="MinhTrinh" runOnChange="true" runInTransaction="true" labels="DDL">
+    <sqlFile path="../scripts/ddl/001-init-db-tables.sql"
       relativeToChangelogFile="true"/>
   </changeSet>
 </databaseChangeLog>
