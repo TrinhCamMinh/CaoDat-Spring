@@ -1,3 +1,18 @@
 spring:
   application:
     name: datcao
+  datasource:
+    url: jdbc:postgresql://localhost:5432/datcao
+    username: admin
+    password: admin
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none # Liquibase will handle schema changes
+    show-sql: true
+  liquibase:
+    change-log: db/changelog-master.xml
+    enabled: true
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/datcao}
+    user: ${DATABASE_USERNAME:admin}
+    password: ${DATABASE_PASSWORD:admin}
