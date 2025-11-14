@@ -10,25 +10,25 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "AccountMember")
+@Table(name = "accountmember")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class AccountMember {
     @Id
-    @Column(name = "MemberID")
+    @Column(name = "memberid")
     private Integer memberId;
 
-    @Column(name = "MemberPassword", nullable = false, length = 255)
+    @Column(name = "memberpassword", nullable = false, length = 255)
     private String memberPassword;
 
-    @Column(name = "FullName", length = 100)
+    @Column(name = "fullname", length = 100)
     private String fullName;
 
-    @Column(name = "EmailAddress", length = 100)
+    @Column(name = "emailaddress", length = 100)
     private String emailAddress;
 
-    @Column(name = "MemberRole", length = 50)
+    @Column(name = "memberrole", length = 50)
     private String memberRole;
 }

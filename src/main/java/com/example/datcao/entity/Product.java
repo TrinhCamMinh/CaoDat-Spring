@@ -1,38 +1,53 @@
 package com.example.datcao.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import javax.persistence.*;
 import java.math.BigDecimal;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
-@Table(name = "Products")
+@Table(name = "products")
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product {
+
     @Id
-    @Column(name = "ProductID")
+    @Column(name = "productid")
     private Integer productId;
 
-    @Column(name = "ProductName", nullable = false, length = 100)
+    @Column(name = "productname", nullable = false, length = 100)
     private String productName;
 
     @ManyToOne
-    @JoinColumn(name = "CategoryID")
+    @JoinColumn(name = "categoryid")
     private Category category;
 
-    @Column(name = "UnitsInStock")
+    @Column(name = "unitsinstock")
     private Integer unitsInStock;
 
-    @Column(name = "UnitPrice", precision = 10, scale = 2)
+    @Column(name = "unitprice", precision = 10, scale = 2)
     private BigDecimal unitPrice;
+
+    // ---------- JSON OUTPUT: shows categoryName ----------
+    @JsonProperty("categoryName")
+    public String getCategoryName() {
+        return category != null ? category.getCategoryName() : null;
+    }
+
+    // ---------- JSON INPUT: accept categoryId in request ----------
+    @JsonProperty("categoryId")
+    public void setCategoryId(Integer categoryId) {
+        if (categoryId != null) {
+            this.category = new Category();
+            this.category.setCategoryId(categoryId);
+        }
+    }
+
+    // ---------- JSON OUTPUT: show only categoryId ----------
+    @JsonProperty("categoryId")
+    public Integer getCategoryId() {
+        return category != null ? category.getCategoryId() : null;
+    }
 }

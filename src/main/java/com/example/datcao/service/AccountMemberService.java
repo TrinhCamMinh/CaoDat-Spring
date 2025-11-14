@@ -1,3 +1,8 @@
 package com.example.datcao.service;
 
-public interface AccountMemberService {}
+import com.example.datcao.entity.AccountMember;
+
+public interface AccountMemberService {
+    void deleteAccount(int id);
+    AccountMember updateAccountMember(int id, AccountMember accountMember);
+}

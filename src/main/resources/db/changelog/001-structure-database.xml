@@ -7,4 +7,8 @@
     <sqlFile path="../scripts/ddl/001-init-db-tables.sql"
       relativeToChangelogFile="true"/>
   </changeSet>
+  <changeSet id="002" author="MinhTrinh" runOnChange="true" runInTransaction="true" labels="DML">
+    <sqlFile path="../scripts/dml/001-insert-data-for-all-tables.sql"
+      relativeToChangelogFile="true"/>
+  </changeSet>
 </databaseChangeLog>
