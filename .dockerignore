@@ -1,0 +1,27 @@
+# Maven build artifacts
+target/
+
+# IDE files and directories
+.idea/
+.vscode/
+*.iml
+.project
+.classpath
+.settings/
+
+# Git-related files
+.git/
+.gitignore
+
+# Log files
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+
+# Other common exclusions
+.DS_Store
+npm-debug.log
+yarn-debug.log
